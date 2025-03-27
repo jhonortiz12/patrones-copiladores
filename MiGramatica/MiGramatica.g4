@@ -1,52 +1,35 @@
 grammar MiGramatica;
 
-// Regla principal: múltiples sentencias
-programa: (sentencia ';')+ EOF ;
+// Reglas de inicio
+programa: sentencia* EOF;
 
-// Sentencias posibles
+// Sentencias
 sentencia
-    : forStmt
-    | asignacion
+    : asignacion
+    | forLoop
     ;
 
-// Regla para `for`
-forStmt
-    : 'for' '(' inicializacion ';' condicion ';' actualizacion ')' '{' (sentencia ';')* '}' # ForLoop
-    ;
+// Asignaciones (Ej: x = 5;)
+asignacion: ID '=' expresion ';' ;
 
+// Bucle for (Ej: for (i = 0; i < 3; i = i + 1) { x = x + 2; })
+forLoop: 'for' '(' inicializacion ';' condicion ';' actualizacion ')' '{' sentencia* '}' ;
 
-// Inicialización del `for`
-inicializacion
-    : ID '=' expresion
-    ;
+// Inicialización, condición y actualización del for
+inicializacion: ID '=' expresion ;
+condicion: expresion op=('<' | '>' | '==' | '!=') expresion ;
+actualizacion: ID '=' expresion ;
 
-// Condición dentro del `for`
-condicion
-    : expresion op=('>' | '<' | '==' | '!=') expresion
-    ;
-
-// Actualización del `for`
-actualizacion
-    : ID '=' expresion
-    ;
-
-// Asignaciones generales
-asignacion
-    : ID '=' expresion # Assign
-    ;
-
-// Expresiones matemáticas con precedencia adecuada
+// Expresiones matemáticas
 expresion
-    : expresion '*' expresion            # Mul
-    | expresion '/' expresion            # Div
-    | expresion '+' expresion            # Add
-    | expresion '-' expresion            # Sub
-    | '(' expresion ')'                  # Parens
-    | ID                                 # Variable
-    | INT                                # Int
+    : expresion op=('+' | '-') expresion  # AddSub
+    | expresion op=('*' | '/') expresion  # MulDiv
+    | INT                                  # Int
+    | ID                                   # Variable
+    | '(' expresion ')'                    # Parens
     ;
 
-// Reglas léxicas
-ID  : [a-zA-Z_][a-zA-Z_0-9]* ;  // Identificadores
-INT : [0-9]+ ;                  // Números enteros
-WS  : [ \t\r\n]+ -> skip ;      // Espacios en blanco ignorados
+// Tokens
+ID  : [a-zA-Z_][a-zA-Z_0-9]* ;
+INT : [0-9]+ ;
+WS  : [ \t\r\n]+ -> skip ;

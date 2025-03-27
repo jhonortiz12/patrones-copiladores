@@ -26,11 +26,20 @@ class MiGramaticaListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MiGramaticaParser#ForLoop.
+    # Enter a parse tree produced by MiGramaticaParser#asignacion.
+    def enterAsignacion(self, ctx:MiGramaticaParser.AsignacionContext):
+        pass
+
+    # Exit a parse tree produced by MiGramaticaParser#asignacion.
+    def exitAsignacion(self, ctx:MiGramaticaParser.AsignacionContext):
+        pass
+
+
+    # Enter a parse tree produced by MiGramaticaParser#forLoop.
     def enterForLoop(self, ctx:MiGramaticaParser.ForLoopContext):
         pass
 
-    # Exit a parse tree produced by MiGramaticaParser#ForLoop.
+    # Exit a parse tree produced by MiGramaticaParser#forLoop.
     def exitForLoop(self, ctx:MiGramaticaParser.ForLoopContext):
         pass
 
@@ -62,42 +71,6 @@ class MiGramaticaListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MiGramaticaParser#Assign.
-    def enterAssign(self, ctx:MiGramaticaParser.AssignContext):
-        pass
-
-    # Exit a parse tree produced by MiGramaticaParser#Assign.
-    def exitAssign(self, ctx:MiGramaticaParser.AssignContext):
-        pass
-
-
-    # Enter a parse tree produced by MiGramaticaParser#Div.
-    def enterDiv(self, ctx:MiGramaticaParser.DivContext):
-        pass
-
-    # Exit a parse tree produced by MiGramaticaParser#Div.
-    def exitDiv(self, ctx:MiGramaticaParser.DivContext):
-        pass
-
-
-    # Enter a parse tree produced by MiGramaticaParser#Add.
-    def enterAdd(self, ctx:MiGramaticaParser.AddContext):
-        pass
-
-    # Exit a parse tree produced by MiGramaticaParser#Add.
-    def exitAdd(self, ctx:MiGramaticaParser.AddContext):
-        pass
-
-
-    # Enter a parse tree produced by MiGramaticaParser#Sub.
-    def enterSub(self, ctx:MiGramaticaParser.SubContext):
-        pass
-
-    # Exit a parse tree produced by MiGramaticaParser#Sub.
-    def exitSub(self, ctx:MiGramaticaParser.SubContext):
-        pass
-
-
     # Enter a parse tree produced by MiGramaticaParser#Variable.
     def enterVariable(self, ctx:MiGramaticaParser.VariableContext):
         pass
@@ -107,12 +80,21 @@ class MiGramaticaListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MiGramaticaParser#Mul.
-    def enterMul(self, ctx:MiGramaticaParser.MulContext):
+    # Enter a parse tree produced by MiGramaticaParser#AddSub.
+    def enterAddSub(self, ctx:MiGramaticaParser.AddSubContext):
         pass
 
-    # Exit a parse tree produced by MiGramaticaParser#Mul.
-    def exitMul(self, ctx:MiGramaticaParser.MulContext):
+    # Exit a parse tree produced by MiGramaticaParser#AddSub.
+    def exitAddSub(self, ctx:MiGramaticaParser.AddSubContext):
+        pass
+
+
+    # Enter a parse tree produced by MiGramaticaParser#MulDiv.
+    def enterMulDiv(self, ctx:MiGramaticaParser.MulDivContext):
+        pass
+
+    # Exit a parse tree produced by MiGramaticaParser#MulDiv.
+    def exitMulDiv(self, ctx:MiGramaticaParser.MulDivContext):
         pass
 
 

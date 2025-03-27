@@ -19,7 +19,12 @@ class MiGramaticaVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MiGramaticaParser#ForLoop.
+    # Visit a parse tree produced by MiGramaticaParser#asignacion.
+    def visitAsignacion(self, ctx:MiGramaticaParser.AsignacionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MiGramaticaParser#forLoop.
     def visitForLoop(self, ctx:MiGramaticaParser.ForLoopContext):
         return self.visitChildren(ctx)
 
@@ -39,33 +44,18 @@ class MiGramaticaVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MiGramaticaParser#Assign.
-    def visitAssign(self, ctx:MiGramaticaParser.AssignContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MiGramaticaParser#Div.
-    def visitDiv(self, ctx:MiGramaticaParser.DivContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MiGramaticaParser#Add.
-    def visitAdd(self, ctx:MiGramaticaParser.AddContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MiGramaticaParser#Sub.
-    def visitSub(self, ctx:MiGramaticaParser.SubContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MiGramaticaParser#Variable.
     def visitVariable(self, ctx:MiGramaticaParser.VariableContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MiGramaticaParser#Mul.
-    def visitMul(self, ctx:MiGramaticaParser.MulContext):
+    # Visit a parse tree produced by MiGramaticaParser#AddSub.
+    def visitAddSub(self, ctx:MiGramaticaParser.AddSubContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MiGramaticaParser#MulDiv.
+    def visitMulDiv(self, ctx:MiGramaticaParser.MulDivContext):
         return self.visitChildren(ctx)
 
 
